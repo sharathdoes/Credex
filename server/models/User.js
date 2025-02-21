@@ -51,10 +51,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  creditCard: {
-    cardName:{
-      type:String,
-      required:false
+  creditCards: [{
+    cardName: {
+      type: String,
+      required: false
     },
     cardholderName: {
       type: String,
@@ -67,7 +67,7 @@ const userSchema = new mongoose.Schema({
     cardInfo: {
       type: String,
     }
-  },
+  }],
   createdAt: {
     type: Date,
     default: Date.now
