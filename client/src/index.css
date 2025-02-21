@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: black;
+  }
+  
+  h1, h2 {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+.glow {
+  filter: drop-shadow(0 0 0.75rem theme('colors.primary'));
+}
+
+.hero-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero-icon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.hero-icon:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.feature-mega-card {
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.feature-mega-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(37, 150, 190, 0.1),
+    transparent
+  );
+  animation: shimmerBg 3s infinite;
+}
+
+.feature-icon-box {
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 150, 190, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature-icon-box:hover {
+  border-color: rgba(37, 150, 190, 0.4);
+  box-shadow: 0 0 30px rgba(37, 150, 190, 0.2);
+}
+
+.stat-number {
+  animation: countUp 2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shimmerBg {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(37, 150, 190, 0.2);
+}
+
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}

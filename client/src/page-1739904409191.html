@@ -1,0 +1,1482 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+       <link href="{{fontLink}}" rel="stylesheet">
+       <link href="{{secondaryFontLink}}" rel="stylesheet">
+      
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['{{settings.fonts.primary}}', 'Roboto', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['{{settings.fonts.secondary}}', 'system-ui', 'sans-serif'],
+                body: ['{{settings.fonts.secondary}}', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: {{settings.fonts.primary}}, system-ui, sans-serif;
+        }
+        body {
+          font-family: {{settings.fonts.secondary}}, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Header -->
+      <header class="relative z-50 bg-white dark:bg-gray-900">
+        <!-- Header content goes here -->
+      </header>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+
+   </body>
+</html><element id="385ced64-140f-4d93-9e1d-d8ae29fada49" data-section-id="385ced64-140f-4d93-9e1d-d8ae29fada49">
+
+<htmlCode>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .active-link {
+            @apply bg-red-100 text-red-600 border-r-4 border-red-600;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-[#E5E7EB]">
+    <div id="root" class="flex h-screen overflow-hidden">
+        <div x-data="{ isOpen: false }">
+            <nav class="fixed h-screen w-64 bg-white border-r border-neutral-200/20 hidden lg:block">
+                <div class="flex items-center justify-center h-16 border-b border-neutral-200/20">
+                    <h1 class="text-2xl font-bold text-[#e74640] font-['IBM_Plex_Mono']">Credex</h1>
+                </div>
+                
+                <div class="px-4 py-6">
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#home" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200 active-link">
+                                <span class="ml-3">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#personal" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                <span class="ml-3">Personal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#cards" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                <span class="ml-3">Cards</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#coupons" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                <span class="ml-3">Coupons</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#chat" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                <span class="ml-3">Chat</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#complaints" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                <span class="ml-3">Complaints</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="absolute bottom-0 w-full border-t border-neutral-200/20 p-4">
+                    <div class="flex items-center">
+                        <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="Profile">
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-700">John Doe</p>
+                            <p class="text-xs text-gray-500">john@example.com</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button 
+                type="button"
+                class="lg:hidden fixed top-4 right-4 z-20 p-2 rounded-lg bg-white text-gray-500 hover:text-gray-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500"
+                @click="isOpen = !isOpen"
+                aria-controls="mobile-menu"
+                :aria-expanded="isOpen"
+            >
+                <svg 
+                    x-show="!isOpen"
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+
+                <svg
+                    x-show="isOpen"
+                    x-cloak
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Mobile Menu -->
+            <div
+                x-show="isOpen"
+                x-cloak
+                class="lg:hidden fixed inset-0 z-10 bg-neutral-800/80 backdrop-blur-lg"
+                x-transition:enter="transition ease-out duration-100 transform"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75 transform"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                @click.away="isOpen = false"
+                @resize.window="if (window.innerWidth > 1024) isOpen = false"
+            >
+                <div class="fixed inset-y-0 left-0 w-full bg-white shadow-xl">
+                    <div class="flex items-center justify-center h-16 border-b border-neutral-200/20">
+                        <h1 class="text-2xl font-bold text-[#e74640] font-['IBM_Plex_Mono']">Credex</h1>
+                    </div>
+                    <div class="px-4 py-6">
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#home" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                    <span class="ml-3">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#personal" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                    <span class="ml-3">Personal</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#cards" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                    <span class="ml-3">Cards</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#coupons" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                    <span class="ml-3">Coupons</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#chat" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                    <span class="ml-3">Chat</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#complaints" class="flex items-center px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200">
+                                    <span class="ml-3">Complaints</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="flex-1 overflow-y-auto ml-64 lg:ml-0">
+            <MountPoint>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('nav a');
+    
+    function setActiveLink() {
+        const hash = window.location.hash || '#home';
+        links.forEach(link => {
+            if(link.getAttribute('href') === hash) {
+                link.classList.add('active-link');
+            } else {
+                link.classList.remove('active-link');
+            }
+        });
+    }
+
+    window.addEventListener('hashchange', setActiveLink);
+    setActiveLink();
+});
+</script></element><element id="6df88520-f26e-4553-aa21-7076585091d0" data-section-id="6df88520-f26e-4553-aa21-7076585091d0">
+
+
+                      
+<section id="landing" class="relative overflow-hidden">
+    <!-- Red Section -->
+    <div class="bg-[#e74640] min-h-screen relative" id="el-cvepswij">
+        <div class="container mx-auto px-4 py-20 relative z-10" id="el-78r8ttg0">
+            <div class="max-w-3xl mx-auto text-center" id="el-bg3177db">
+                <h1 class="text-6xl font-['IBM_Plex_Mono'] font-semibold text-black mb-8" id="el-2d87vbaz">
+                    Share &amp; Save with Credex
+                </h1>
+                <p class="text-black text-xl mb-12" id="el-vvhamr9e">
+                    Turn unused coupons into opportunities. Share credit card offers. Build a community of smart savers.
+                </p>
+                <a href="#home" class="inline-block bg-black text-white px-8 py-4 rounded-lg font-['IBM_Plex_Mono'] hover:bg-opacity-90 transition-all duration-300" id="el-sczfncez">
+                    Get Started
+                </a>
+            </div>
+        </div>
+        <div class="custom-shape-divider" id="el-7qv4uh6v">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="transform: rotate(180deg);" id="el-96tsbvc2">
+    <defs>
+        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1"></stop>
+            <stop offset="100%" style="stop-color:#2ECC71;stop-opacity:1"></stop>
+        </linearGradient>
+    </defs>
+    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="url(#waveGradient)">
+        <animate attributeName="d" dur="5s" repeatCount="indefinite" values="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z;
+                         M321.39,76.44c58-10.79,114.16-40.13,172-51.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,41,906.67,82,985.66,102.83c70.05,18.48,146.53,26.09,214.34,3V0H0V47.35A600.21,600.21,0,0,0,321.39,76.44Z;
+                         M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"></animate>
+    </path>
+</svg>
+        </div>
+    </div>
+
+    <!-- White Section -->
+    <div class="bg-white min-h-screen relative" id="el-7d0aozue">
+        <div class="container mx-auto px-4 py-20" id="el-j9so0cxu">
+            <div class="grid md:grid-cols-2 gap-12 items-center" id="el-rilf2voz">
+                <div id="el-10pk4cn9">
+                    <h2 class="text-4xl font-['IBM_Plex_Mono'] font-semibold text-black mb-6" id="el-cf1ue18g">
+                        Share Your Unused Deals
+                    </h2>
+                    <p class="text-gray-700 text-lg mb-8" id="el-ekq0n9or">
+                        Got coupons collecting digital dust? Share them with people who'll actually use them. From shopping to dining, spread the savings around.
+                    </p>
+                    <div class="space-y-4" id="el-e4cabtm3">
+                        <div class="flex items-center" id="el-o62sjqqu">
+                            <div class="w-12 h-12 bg-[#e74640] rounded-full flex items-center justify-center text-white font-bold mr-4" id="el-yampqq03">1</div>
+                            <p class="text-gray-700" id="el-mq3ctpdi">Upload your unused coupons</p>
+                        </div>
+                        <div class="flex items-center" id="el-n65c39t1">
+                            <div class="w-12 h-12 bg-[#e74640] rounded-full flex items-center justify-center text-white font-bold mr-4" id="el-c8o3sxgr">2</div>
+                            <p class="text-gray-700" id="el-oauanktv">Share credit card offers</p>
+                        </div>
+                        <div class="flex items-center" id="el-0kybttjm">
+                            <div class="w-12 h-12 bg-[#e74640] rounded-full flex items-center justify-center text-white font-bold mr-4" id="el-tklygsfg">3</div>
+                            <p class="text-gray-700" id="el-11vj4lc6">Help others save money</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" id="el-15yux3e9">
+                    <div class="w-full h-96 bg-gray-200 rounded-lg" id="el-kxal16wl"></div>
+                </div>
+            </div>
+        </div>
+        <div class="custom-shape-divider" id="el-46phsmue">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" id="el-98562691">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#18245c" id="el-8n7d67kw"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Navy Section -->
+    <div class="bg-[#18245c] min-h-screen relative" id="el-ktq1vh6p">
+        <div class="container mx-auto px-4 py-20" id="el-8jekuy47">
+            <div class="text-center mb-16" id="el-q78aymmq">
+                <h2 class="text-4xl font-['IBM_Plex_Mono'] font-semibold text-white mb-6" id="el-3qwk45yt">
+                    Why Choose Credex?
+                </h2>
+                <p class="text-white/80 text-xl" id="el-ins6e4aj">
+                    Join our community of smart savers and deal hunters
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8" id="el-i9stjtsd">
+                <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm" id="el-foa4pj04">
+                    <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-white mb-4" id="el-vimg4f5x">
+                        Share &amp; Save
+                    </h3>
+                    <p class="text-white/80" id="el-u0sdhly1">
+                        Turn your unused coupons into opportunities for others
+                    </p>
+                </div>
+                <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm" id="el-nbg3r95o">
+                    <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-white mb-4" id="el-t8lm5yc6">
+                        Card Benefits
+                    </h3>
+                    <p class="text-white/80" id="el-itc92p9u">
+                        Access exclusive credit card offers through our community
+                    </p>
+                </div>
+                <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm" id="el-9px5au47">
+                    <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-white mb-4" id="el-wk0n7ajr">
+                        Safe &amp; Secure
+                    </h3>
+                    <p class="text-white/80" id="el-4ibn6ai1">
+                        Protected transactions with our complaint resolution system
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-16" id="el-jo954uil">
+                <a href="#home" class="inline-block bg-[#e74640] text-white px-8 py-4 rounded-lg font-['IBM_Plex_Mono'] hover:bg-opacity-90 transition-all duration-300" id="el-pr4g8471">
+                    Join Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .custom-shape-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .custom-shape-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+    </style>
+</section>
+
+                    </element><element id="08d777cd-f69a-446a-b658-fb6e1b930987" data-section-id="08d777cd-f69a-446a-b658-fb6e1b930987">
+
+
+<section id="features" class="bg-white py-20">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-6">
+                Powerful Features
+            </h2>
+            <p class="text-gray-600 text-xl max-w-2xl mx-auto">
+                Everything you need to share and benefit from unused deals
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white border border-neutral-200/30 rounded-xl p-8 hover:border-[#e74640]/30 transition-all duration-300">
+                <div class="w-14 h-14 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">
+                    Coupon Sharing
+                </h3>
+                <p class="text-gray-600">
+                    Share your unused coupons instantly. First-come, first-served system ensures quick and fair distribution.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-white border border-neutral-200/30 rounded-xl p-8 hover:border-[#e74640]/30 transition-all duration-300">
+                <div class="w-14 h-14 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">
+                    Card Benefits
+                </h3>
+                <p class="text-gray-600">
+                    Connect with card holders to access exclusive offers. Negotiate terms and conditions directly.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-white border border-neutral-200/30 rounded-xl p-8 hover:border-[#e74640]/30 transition-all duration-300">
+                <div class="w-14 h-14 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">
+                    Real-time Chat
+                </h3>
+                <p class="text-gray-600">
+                    Communicate directly with other users. Discuss deals and negotiate terms in real-time.
+                </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="bg-white border border-neutral-200/30 rounded-xl p-8 hover:border-[#e74640]/30 transition-all duration-300">
+                <div class="w-14 h-14 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">
+                    Secure Platform
+                </h3>
+                <p class="text-gray-600">
+                    Built-in complaint system protects users. Quick resolution for any disputes or issues.
+                </p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="bg-white border border-neutral-200/30 rounded-xl p-8 hover:border-[#e74640]/30 transition-all duration-300">
+                <div class="w-14 h-14 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">
+                    Real-time Updates
+                </h3>
+                <p class="text-gray-600">
+                    Instant notifications for new deals. Never miss out on potential savings opportunities.
+                </p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="bg-white border border-neutral-200/30 rounded-xl p-8 hover:border-[#e74640]/30 transition-all duration-300">
+                <div class="w-14 h-14 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">
+                    Community Driven
+                </h3>
+                <p class="text-gray-600">
+                    Join a growing community of deal seekers. Share experiences and maximize savings together.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</element><element id="7ef415e4-9a07-4783-b9f6-a18fe297fadf" data-section-id="7ef415e4-9a07-4783-b9f6-a18fe297fadf">
+
+
+<section id="how-it-works" class="bg-[#18245c] py-20">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-['IBM_Plex_Mono'] font-semibold text-white mb-6">
+                How Credex Works
+            </h2>
+            <p class="text-white/80 text-xl max-w-2xl mx-auto">
+                Getting started is easy. Follow these simple steps to begin saving and sharing.
+            </p>
+        </div>
+
+        <!-- Steps -->
+        <div class="max-w-5xl mx-auto">
+            <!-- Step 1 -->
+            <div class="relative flex items-center mb-16">
+                <div class="w-16 h-16 bg-[#e74640] rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">
+                    1
+                </div>
+                <div class="flex-1 ml-8">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-white mb-4">
+                            Create Your Account
+                        </h3>
+                        <p class="text-white/80 text-lg">
+                            Sign up and complete your profile. Add your interests and preferred deal categories to get personalized recommendations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative flex items-center mb-16">
+                <div class="w-16 h-16 bg-[#e74640] rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">
+                    2
+                </div>
+                <div class="flex-1 ml-8">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-white mb-4">
+                            Share or Browse
+                        </h3>
+                        <p class="text-white/80 text-lg">
+                            Upload your unused coupons or browse available deals. Add credit card offers you're willing to share with the community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative flex items-center mb-16">
+                <div class="w-16 h-16 bg-[#e74640] rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">
+                    3
+                </div>
+                <div class="flex-1 ml-8">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-white mb-4">
+                            Connect & Chat
+                        </h3>
+                        <p class="text-white/80 text-lg">
+                            Found something interesting? Chat with the offer provider, discuss terms, and arrange the deal details securely.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative flex items-center">
+                <div class="w-16 h-16 bg-[#e74640] rounded-full flex items-center justify-center text-white text-2xl font-bold z-10">
+                    4
+                </div>
+                <div class="flex-1 ml-8">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-white mb-4">
+                            Save & Benefit
+                        </h3>
+                        <p class="text-white/80 text-lg">
+                            Claim your deals and start saving. Rate your experience and help build a trusted community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16">
+            <a href="#home" class="inline-block bg-[#e74640] text-white px-8 py-4 rounded-lg font-['IBM_Plex_Mono'] hover:bg-opacity-90 transition-all duration-300">
+                Start Saving Today
+            </a>
+        </div>
+    </div>
+
+    <!-- Vertical Line Connector -->
+    <style>
+        #how-it-works .relative::before {
+            content: '';
+            position: absolute;
+            left: 31px;
+            top: 64px;
+            bottom: -48px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 0;
+        }
+        #how-it-works .relative:last-child::before {
+            display: none;
+        }
+    </style>
+</section>
+</element><element id="6ae0f203-dde5-4e59-b1fe-3c845a9d9dce" data-section-id="6ae0f203-dde5-4e59-b1fe-3c845a9d9dce">
+
+
+<section id="home" class="px-4 py-8">
+    <!-- Header with Stats -->
+    <div class="bg-white rounded-xl border border-neutral-200/30 p-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center p-4">
+                <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">1,234</h3>
+                <p class="text-gray-600">Active Coupons</p>
+            </div>
+            <div class="text-center p-4">
+                <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">567</h3>
+                <p class="text-gray-600">Card Offers</p>
+            </div>
+            <div class="text-center p-4">
+                <h3 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">890</h3>
+                <p class="text-gray-600">Happy Users</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity & Trending Deals -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-6">
+            <h2 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">Recent Activity</h2>
+            <div class="space-y-4">
+                <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-all duration-200">
+                    <img src="https://avatar.iran.liara.run/public" class="w-10 h-10 rounded-full" alt="User"/>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium">John Doe claimed your Amazon coupon</p>
+                        <p class="text-xs text-gray-500">2 minutes ago</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-all duration-200">
+                    <img src="https://avatar.iran.liara.run/public" class="w-10 h-10 rounded-full" alt="User"/>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium">Sarah accepted your card offer request</p>
+                        <p class="text-xs text-gray-500">1 hour ago</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-all duration-200">
+                    <img src="https://avatar.iran.liara.run/public" class="w-10 h-10 rounded-full" alt="User"/>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium">New message from Mike about Netflix offer</p>
+                        <p class="text-xs text-gray-500">3 hours ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trending Deals -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-6">
+            <h2 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-4">Trending Deals</h2>
+            <div class="space-y-4">
+                <div class="border border-neutral-200/30 rounded-lg p-4 hover:border-[#e74640]/30 transition-all duration-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">50% Off at Nike</h3>
+                            <p class="text-sm text-gray-500">Valid until Dec 31, 2023</p>
+                        </div>
+                        <button class="bg-[#e74640] text-white px-4 py-2 rounded-lg text-sm hover:bg-opacity-90 transition-all duration-200">
+                            Claim
+                        </button>
+                    </div>
+                </div>
+                <div class="border border-neutral-200/30 rounded-lg p-4 hover:border-[#e74640]/30 transition-all duration-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">BOGO at Starbucks</h3>
+                            <p class="text-sm text-gray-500">Valid until Nov 30, 2023</p>
+                        </div>
+                        <button class="bg-[#e74640] text-white px-4 py-2 rounded-lg text-sm hover:bg-opacity-90 transition-all duration-200">
+                            Claim
+                        </button>
+                    </div>
+                </div>
+                <div class="border border-neutral-200/30 rounded-lg p-4 hover:border-[#e74640]/30 transition-all duration-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-medium">20% Off Amazon Electronics</h3>
+                            <p class="text-sm text-gray-500">Valid until Jan 15, 2024</p>
+                        </div>
+                        <button class="bg-[#e74640] text-white px-4 py-2 rounded-lg text-sm hover:bg-opacity-90 transition-all duration-200">
+                            Claim
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-6 hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                </div>
+                <h3 class="font-medium mb-2">Upload Coupon</h3>
+                <p class="text-sm text-gray-500">Share your unused coupons</p>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-6 hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-medium mb-2">Find Deals</h3>
+                <p class="text-sm text-gray-500">Browse available offers</p>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-6 hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-medium mb-2">Chat Now</h3>
+                <p class="text-sm text-gray-500">Connect with users</p>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-6 hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="flex flex-col items-center text-center">
+                <div class="w-12 h-12 bg-[#e74640]/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-[#e74640]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                </div>
+                <h3 class="font-medium mb-2">My Deals</h3>
+                <p class="text-sm text-gray-500">View your activity</p>
+            </div>
+        </div>
+    </div>
+</section>
+</element><element id="af505688-fea3-4033-a258-7e4b83f9fbe9" data-section-id="af505688-fea3-4033-a258-7e4b83f9fbe9">
+
+
+<section id="personal-details" class="px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Profile Header -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-8 mb-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="relative mb-4 md:mb-0 md:mr-8">
+                    <img src="https://avatar.iran.liara.run/public" class="w-24 h-24 rounded-full" alt="Profile"/>
+                    <button class="absolute bottom-0 right-0 bg-[#e74640] text-white p-2 rounded-full hover:bg-opacity-90 transition-all duration-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-2">John Doe</h2>
+                    <p class="text-gray-600 mb-4">Member since October 2023</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                        <span class="bg-[#e74640]/10 text-[#e74640] px-3 py-1 rounded-full text-sm">Verified User</span>
+                        <span class="bg-[#18245c]/10 text-[#18245c] px-3 py-1 rounded-full text-sm">Premium Member</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Information Form -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-8">
+            <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mb-6">Personal Information</h3>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                        <input type="text" value="John" class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] focus:ring-1 focus:ring-[#e74640] outline-none transition-all duration-200"/>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                        <input type="text" value="Doe" class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] focus:ring-1 focus:ring-[#e74640] outline-none transition-all duration-200"/>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" value="john@example.com" class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] focus:ring-1 focus:ring-[#e74640] outline-none transition-all duration-200"/>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                        <input type="tel" value="+1 234 567 890" class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] focus:ring-1 focus:ring-[#e74640] outline-none transition-all duration-200"/>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Bio</label>
+                    <textarea rows="4" class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] focus:ring-1 focus:ring-[#e74640] outline-none transition-all duration-200">Enthusiastic deal finder and sharing enthusiast. Always looking for the best offers to share with the community.</textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Interests</label>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-[#e74640]/10 text-[#e74640] px-3 py-1 rounded-full text-sm">Shopping</span>
+                        <span class="bg-[#e74640]/10 text-[#e74640] px-3 py-1 rounded-full text-sm">Travel</span>
+                        <span class="bg-[#e74640]/10 text-[#e74640] px-3 py-1 rounded-full text-sm">Dining</span>
+                        <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">+ Add More</button>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-4">
+                    <button type="button" class="px-6 py-2 border border-neutral-200/30 rounded-lg hover:border-[#e74640] transition-all duration-200">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-6 py-2 bg-[#e74640] text-white rounded-lg hover:bg-opacity-90 transition-all duration-200">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</element><element id="4dfbfe22-47d2-493d-9053-b28c9b1e8fe6" data-section-id="4dfbfe22-47d2-493d-9053-b28c9b1e8fe6">
+
+
+<section id="credit-cards" class="px-4 py-8">
+    <!-- Filter Bar -->
+    <div class="bg-white rounded-xl border border-neutral-200/30 p-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center space-x-4">
+            <h2 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">Credit Card Offers</h2>
+            <select class="border border-neutral-200/30 rounded-lg px-4 py-2 focus:border-[#e74640] outline-none">
+                <option>All Banks</option>
+                <option>Chase</option>
+                <option>American Express</option>
+                <option>Citibank</option>
+            </select>
+        </div>
+        <button class="bg-[#e74640] text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200">
+            Add New Offer
+        </button>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 overflow-hidden hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="bg-[#18245c] p-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-white font-['IBM_Plex_Mono'] font-semibold mb-2">Chase Sapphire</h3>
+                        <p class="text-white/80 text-sm">Travel Rewards</p>
+                    </div>
+                    <span class="bg-[#e74640] text-white px-3 py-1 rounded-full text-sm">Popular</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-4">
+                    <h4 class="font-medium mb-2">Offer Details</h4>
+                    <p class="text-gray-600 text-sm">60,000 bonus points after spending $4,000 in first 3 months</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                        <span class="ml-2 text-sm text-gray-600">@johndoe</span>
+                    </div>
+                    <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">Chat Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 overflow-hidden hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="bg-[#18245c] p-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-white font-['IBM_Plex_Mono'] font-semibold mb-2">Amex Platinum</h3>
+                        <p class="text-white/80 text-sm">Luxury Benefits</p>
+                    </div>
+                    <span class="bg-[#e74640] text-white px-3 py-1 rounded-full text-sm">New</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-4">
+                    <h4 class="font-medium mb-2">Offer Details</h4>
+                    <p class="text-gray-600 text-sm">100,000 points + $200 hotel credit, annual fee applies</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                        <span class="ml-2 text-sm text-gray-600">@sarahsmith</span>
+                    </div>
+                    <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">Chat Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 overflow-hidden hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="bg-[#18245c] p-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-white font-['IBM_Plex_Mono'] font-semibold mb-2">Citi Premier</h3>
+                        <p class="text-white/80 text-sm">Everyday Rewards</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="mb-4">
+                    <h4 class="font-medium mb-2">Offer Details</h4>
+                    <p class="text-gray-600 text-sm">80,000 points after $4,000 spend + $100 hotel savings</p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                        <span class="ml-2 text-sm text-gray-600">@mikebrown</span>
+                    </div>
+                    <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">Chat Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Offer Modal Trigger -->
+    <button class="fixed bottom-8 right-8 bg-[#e74640] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all duration-200">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+        </svg>
+    </button>
+</section>
+</element><element id="5e20b1e5-e1e5-4e9a-9fe0-33ede44ee51c" data-section-id="5e20b1e5-e1e5-4e9a-9fe0-33ede44ee51c">
+
+
+<section id="coupons" class="px-4 py-8">
+    <!-- Filter and Search Bar -->
+    <div class="bg-white rounded-xl border border-neutral-200/30 p-4 mb-8">
+        <div class="flex flex-wrap gap-4">
+            <div class="flex-1">
+                <input type="search" placeholder="Search coupons..." class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] outline-none"/>
+            </div>
+            <select class="border border-neutral-200/30 rounded-lg px-4 py-2 focus:border-[#e74640] outline-none">
+                <option>All Categories</option>
+                <option>Shopping</option>
+                <option>Restaurants</option>
+                <option>Entertainment</option>
+            </select>
+            <select class="border border-neutral-200/30 rounded-lg px-4 py-2 focus:border-[#e74640] outline-none">
+                <option>Sort By: Latest</option>
+                <option>Expiring Soon</option>
+                <option>Most Popular</option>
+            </select>
+            <button class="bg-[#e74640] text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200">
+                Upload Coupon
+            </button>
+        </div>
+    </div>
+
+    <!-- Coupons Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Coupon 1 -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="p-6 border-b border-neutral-200/30">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="bg-[#e74640]/10 text-[#e74640] px-3 py-1 rounded-full text-sm">Shopping</span>
+                        <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mt-2">Amazon</h3>
+                    </div>
+                    <span class="text-[#e74640] font-bold">30% OFF</span>
+                </div>
+                <p class="text-gray-600 mb-4">30% off on electronics above $500</p>
+                <div class="flex justify-between items-end">
+                    <div class="text-sm text-gray-500">
+                        <p>Expires: Dec 31, 2023</p>
+                        <p>Added 2 hours ago</p>
+                    </div>
+                    <button class="bg-[#18245c] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200">
+                        Claim Now
+                    </button>
+                </div>
+            </div>
+            <div class="px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                    <span class="ml-2 text-sm text-gray-600">@johndoe</span>
+                </div>
+                <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">
+                    Chat with owner
+                </button>
+            </div>
+        </div>
+
+        <!-- Coupon 2 -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="p-6 border-b border-neutral-200/30">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="bg-[#e74640]/10 text-[#e74640] px-3 py-1 rounded-full text-sm">Restaurants</span>
+                        <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mt-2">Starbucks</h3>
+                    </div>
+                    <span class="text-[#e74640] font-bold">BOGO</span>
+                </div>
+                <p class="text-gray-600 mb-4">Buy one get one free on all beverages</p>
+                <div class="flex justify-between items-end">
+                    <div class="text-sm text-gray-500">
+                        <p>Expires: Nov 30, 2023</p>
+                        <p>Added 5 hours ago</p>
+                    </div>
+                    <button class="bg-[#18245c] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200">
+                        Claim Now
+                    </button>
+                </div>
+            </div>
+            <div class="px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                    <span class="ml-2 text-sm text-gray-600">@sarahsmith</span>
+                </div>
+                <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">
+                    Chat with owner
+                </button>
+            </div>
+        </div>
+
+        <!-- Coupon 3 -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 hover:border-[#e74640]/30 transition-all duration-200">
+            <div class="p-6 border-b border-neutral-200/30">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="bg-[#e74640]/10 text-[#e74640] px-3 py-1 rounded-full text-sm">Entertainment</span>
+                        <h3 class="text-xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c] mt-2">Netflix</h3>
+                    </div>
+                    <span class="text-[#e74640] font-bold">50% OFF</span>
+                </div>
+                <p class="text-gray-600 mb-4">50% off on 6-month subscription</p>
+                <div class="flex justify-between items-end">
+                    <div class="text-sm text-gray-500">
+                        <p>Expires: Jan 15, 2024</p>
+                        <p>Added 1 day ago</p>
+                    </div>
+                    <button class="bg-[#18245c] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200">
+                        Claim Now
+                    </button>
+                </div>
+            </div>
+            <div class="px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                    <span class="ml-2 text-sm text-gray-600">@mikebrown</span>
+                </div>
+                <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">
+                    Chat with owner
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Coupon Button -->
+    <button class="fixed bottom-8 right-8 bg-[#e74640] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition-all duration-200">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+        </svg>
+    </button>
+</section></element><element id="9e6e9bbe-ba88-4855-92b1-23ecdba0e865" data-section-id="9e6e9bbe-ba88-4855-92b1-23ecdba0e865">
+
+
+<section id="chat" class="h-screen flex">
+    <!-- Chat List -->
+    <div class="w-80 border-r border-neutral-200/30 bg-white overflow-y-auto">
+        <!-- Search -->
+        <div class="p-4 border-b border-neutral-200/30">
+            <input type="search" placeholder="Search chats..." class="w-full px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] outline-none"/>
+        </div>
+
+        <!-- Chat List -->
+        <div class="divide-y divide-neutral-200/30">
+            <!-- Active Chat -->
+            <div class="p-4 bg-[#e74640]/10 hover:bg-[#e74640]/5 cursor-pointer">
+                <div class="flex items-start gap-3">
+                    <img src="https://avatar.iran.liara.run/public" class="w-12 h-12 rounded-full" alt="User"/>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-[#18245c] font-medium truncate">Sarah Smith</h3>
+                            <span class="text-xs text-gray-500">2m ago</span>
+                        </div>
+                        <p class="text-sm text-gray-600 truncate">Sure, I can help you with that credit card offer!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Chats -->
+            <div class="p-4 hover:bg-gray-50 cursor-pointer">
+                <div class="flex items-start gap-3">
+                    <img src="https://avatar.iran.liara.run/public" class="w-12 h-12 rounded-full" alt="User"/>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-[#18245c] font-medium truncate">Mike Brown</h3>
+                            <span class="text-xs text-gray-500">1h ago</span>
+                        </div>
+                        <p class="text-sm text-gray-600 truncate">Thanks for the Amazon coupon!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 hover:bg-gray-50 cursor-pointer">
+                <div class="flex items-start gap-3">
+                    <img src="https://avatar.iran.liara.run/public" class="w-12 h-12 rounded-full" alt="User"/>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-[#18245c] font-medium truncate">John Doe</h3>
+                            <span class="text-xs text-gray-500">2h ago</span>
+                        </div>
+                        <p class="text-sm text-gray-600 truncate">Is the Netflix offer still available?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="flex-1 flex flex-col bg-gray-50">
+        <!-- Chat Header -->
+        <div class="bg-white border-b border-neutral-200/30 p-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="https://avatar.iran.liara.run/public" class="w-10 h-10 rounded-full" alt="User"/>
+                    <div>
+                        <h3 class="text-[#18245c] font-medium">Sarah Smith</h3>
+                        <p class="text-sm text-gray-500">Online</p>
+                    </div>
+                </div>
+                <button class="text-gray-500 hover:text-[#e74640]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-4">
+            <!-- Their Message -->
+            <div class="flex items-start gap-3">
+                <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                <div class="bg-white rounded-lg p-3 max-w-md shadow-sm">
+                    <p class="text-gray-800">Hi! I saw you're interested in the Chase Sapphire card offer?</p>
+                    <span class="text-xs text-gray-500 mt-1">10:30 AM</span>
+                </div>
+            </div>
+
+            <!-- My Message -->
+            <div class="flex items-start justify-end gap-3">
+                <div class="bg-[#e74640] rounded-lg p-3 max-w-md shadow-sm">
+                    <p class="text-white">Yes! I've been looking for someone who has this card. The travel rewards look amazing!</p>
+                    <span class="text-xs text-white/80 mt-1">10:31 AM</span>
+                </div>
+            </div>
+
+            <!-- Their Message -->
+            <div class="flex items-start gap-3">
+                <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                <div class="bg-white rounded-lg p-3 max-w-md shadow-sm">
+                    <p class="text-gray-800">Perfect! I can help you with that. Let me know what specific offer you're looking at and we can discuss the details.</p>
+                    <span class="text-xs text-gray-500 mt-1">10:32 AM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="bg-white border-t border-neutral-200/30 p-4">
+            <div class="flex items-center gap-4">
+                <button class="text-gray-500 hover:text-[#e74640]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                    </svg>
+                </button>
+                <input type="text" placeholder="Type your message..." class="flex-1 px-4 py-2 border border-neutral-200/30 rounded-lg focus:border-[#e74640] outline-none"/>
+                <button class="bg-[#e74640] text-white p-2 rounded-lg hover:bg-opacity-90 transition-all duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section></element><element id="74329a95-93e5-472a-a614-206bbbedf906" data-section-id="74329a95-93e5-472a-a614-206bbbedf906">
+
+
+<section id="complaints" class="px-4 py-8">
+    <!-- Header -->
+    <div class="max-w-6xl mx-auto mb-8">
+        <div class="flex justify-between items-center">
+            <h2 class="text-2xl font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">Complaint Center</h2>
+            <button class="bg-[#e74640] text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200">
+                File New Complaint
+            </button>
+        </div>
+    </div>
+
+    <!-- Complaints List -->
+    <div class="max-w-6xl mx-auto">
+        <!-- Filters -->
+        <div class="bg-white rounded-xl border border-neutral-200/30 p-4 mb-8">
+            <div class="flex flex-wrap gap-4">
+                <select class="border border-neutral-200/30 rounded-lg px-4 py-2 focus:border-[#e74640] outline-none">
+                    <option>All Status</option>
+                    <option>Open</option>
+                    <option>In Progress</option>
+                    <option>Resolved</option>
+                </select>
+                <select class="border border-neutral-200/30 rounded-lg px-4 py-2 focus:border-[#e74640] outline-none">
+                    <option>Sort By: Latest</option>
+                    <option>Oldest</option>
+                    <option>Priority</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Complaints -->
+        <div class="space-y-6">
+            <!-- Complaint 1 -->
+            <div class="bg-white rounded-xl border border-neutral-200/30 p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm">High Priority</span>
+                            <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">In Progress</span>
+                        </div>
+                        <h3 class="text-lg font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">Coupon Code Already Used</h3>
+                        <p class="text-gray-600 mt-2">The Amazon coupon code I claimed was already used by someone else.</p>
+                    </div>
+                    <span class="text-sm text-gray-500">2 hours ago</span>
+                </div>
+                <div class="border-t border-neutral-200/30 pt-4 mt-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                            <span class="text-sm text-gray-600">Reported by: @johndoe</span>
+                        </div>
+                        <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complaint 2 -->
+            <div class="bg-white rounded-xl border border-neutral-200/30 p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">Medium Priority</span>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">Resolved</span>
+                        </div>
+                        <h3 class="text-lg font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">Card Benefit Not Honored</h3>
+                        <p class="text-gray-600 mt-2">The card holder didn't follow through with the agreed terms.</p>
+                    </div>
+                    <span class="text-sm text-gray-500">1 day ago</span>
+                </div>
+                <div class="border-t border-neutral-200/30 pt-4 mt-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                            <span class="text-sm text-gray-600">Reported by: @sarahsmith</span>
+                        </div>
+                        <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complaint 3 -->
+            <div class="bg-white rounded-xl border border-neutral-200/30 p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Low Priority</span>
+                            <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">Open</span>
+                        </div>
+                        <h3 class="text-lg font-['IBM_Plex_Mono'] font-semibold text-[#18245c]">Delayed Response</h3>
+                        <p class="text-gray-600 mt-2">User not responding to messages about claimed coupon.</p>
+                    </div>
+                    <span class="text-sm text-gray-500">3 days ago</span>
+                </div>
+                <div class="border-t border-neutral-200/30 pt-4 mt-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <img src="https://avatar.iran.liara.run/public" class="w-8 h-8 rounded-full" alt="User"/>
+                            <span class="text-sm text-gray-600">Reported by: @mikebrown</span>
+                        </div>
+                        <button class="text-[#e74640] hover:text-[#18245c] transition-all duration-200">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section></element>
+            <div id="page_complete">
+            <script>
+                console.log('Page complete');
+            </script>
+            </body>
+            </html>
+          
