@@ -1,5 +1,5 @@
 // models/User.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const userSchema = new mongoose.Schema({
@@ -66,6 +66,9 @@ const userSchema = new mongoose.Schema({
     },
     cardInfo: {
       type: String,
+    },
+    limit:{
+      type:Number,
     }
   }],
   createdAt: {
@@ -76,4 +79,4 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+export default User;

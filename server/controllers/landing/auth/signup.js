@@ -1,53 +1,37 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../../models/User');
+import bcrypt from "bcryptjs";
+import User from "../../../models/User.js";
+import jwt from "jsonwebtoken";
 
-const signup = async (req, res) => {
+export const signup = async (req,res) => {
   try {
-    const { email, password, name, phoneNumber } = req.body;
+    const { name, email, password, phoneNumber, hasCreditCard, creditCards } = req.body;
 
-    // Check if user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
+    const exists = await User.findOne({ email });
+    if (exists) {
+      return res.status(400).json({ message: "you're already signed up" });
     }
-
-    // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-
-    // Create new user
+    const hasher = await bcrypt.genSalt(10);
+    const hashed = await bcrypt.hash(password, hasher);
     const user = new User({
-      email,
-      password: hashedPassword,
       name,
-      phoneNumber
+      email,
+      password: hashed,
+      phoneNumber,
+      hasCreditCard,
+      creditCards,
     });
-
     await user.save();
-
-    // Generate JWT token
-    const token = jwt.sign(
-      { userId: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: '24h' }
-    );
-
-    // Return success response without password
-    const userResponse = user.toObject();
-    delete userResponse.password;
-
-    res.status(201).json({
-      message: 'User created successfully',
-      token,
-      user: userResponse
+    
+    const token =   jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "24h",
     });
 
+    const userRes = user.toObject();
+    delete userRes.password
+    
+    return res.status(200).json({ message:"user successfully registered", user:userRes, token });
   } catch (error) {
-    console.error('Signup error:', error);
-    res.status(500).json({ message: 'Error creating user' });
+    console.log("error in signup :", error);
+    return res.status(500).json({ message: "error in signup function" });
   }
 };
-
-module.exports = signup;
-    

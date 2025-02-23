@@ -1,44 +1,25 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../../../models/User');
+import bcrypt from "bcryptjs";
+import User from "../../../models/User.js";
+import jwt from "jsonwebtoken";
 
-const signin = async (req, res) => {
+export const signin = async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Check if user exists
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(400).json({ message: "you ain't signed up brother" });
+    }
+    const perfect = await bcrypt.compare(password, user.password);
+    if (!perfect) {
+      return res.status(404).json({ message: "password incorrect" });
     }
 
-    // Verify password
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
-
-    // Generate JWT token
-    const token = jwt.sign(
-      { userId: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: '24h' }
-    );
-
-    // Return success response without password
-    const userResponse = user.toObject();
-    delete userResponse.password;
-
-    res.status(200).json({
-      message: 'Signin successful',
-      token,
-      user: userResponse
+    const token = jwt.sign({ user: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "24h"
     });
-
+    res.status(200).json({ message: " successful", token, user: user });
   } catch (error) {
-    console.error('Signin error:', error);
-    res.status(500).json({ message: 'Error signing in' });
+    console.log("error occured in sign in");
+    res.status(404).json({ message: "error occured", error });
   }
 };
-
-module.exports = signin;

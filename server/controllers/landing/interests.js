@@ -1,6 +1,6 @@
-const User = require('../../models/User');
+import User from '../../models/User.js';
 
-const updateUserInterests = async (req, res) => {
+ export const updateUserInterests = async (req, res) => {
   try {
     const { userId, interests } = req.body;
 
@@ -36,8 +36,4 @@ const updateUserInterests = async (req, res) => {
       error: error.message
     });
   }
-};
-
-module.exports = {
-  updateUserInterests
 };

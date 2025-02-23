@@ -1,36 +1,30 @@
-import 'dotenv/config';
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import mongoose from 'mongoose';
+import express from "express";
+import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-
+import authroutes from "./routes/auth_routes.js";
 const app = express();
 
-// Middleware
-app.use(cors({
-  origin: process.env.ORIGIN,
-  methods: ["GET", "PUT", "POST"],
-  credentials: true
-}));
-app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: process.env.ORIGIN,
+    methods: ["GET", "PUT", "POST"],
+    credentials: true,
+  })
+);
 app.use(express.json());
-
-// Routes
-
-
-// MongoDB Connection
-mongoose.connect(process.env.DATABASE_URL)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Failed to connect to MongoDB', err));
-
-// Base Route
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
-
-// Start Server
+app.use("/api/auth", authroutes);
+mongoose
+  .connect("mongodb+srv://sharath7693:dASAm9lfV67DtEzQ@deadpool.oekbu.mongodb.net/c&s")
+  .then(() => {
+    console.log("Database connected successfully");
+  })
+  .catch((err) => {
+    console.log("Database connection failed", err);
+  });
 const port = process.env.PORT || 3000;
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
