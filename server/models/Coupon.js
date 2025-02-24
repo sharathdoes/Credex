@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-const User = require('./User');
-
+import mongoose from "mongoose";
 const couponSchema = new mongoose.Schema({
     provider: {
         type: mongoose.Schema.Types.ObjectId,
@@ -43,4 +41,4 @@ const couponSchema = new mongoose.Schema({
 });
 
 const Coupon = mongoose.model('Coupon', couponSchema);
-module.exports = Coupon;
+export default Coupon;

@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import authroutes from "./routes/auth_routes.js";
+import couponroutes from "./routes/coupon_routes.js";
 const app = express();
 
 app.use(
@@ -15,9 +16,12 @@ app.use(
   })
 );
 app.use(express.json());
+
 app.use("/api/auth", authroutes);
+app.use("/api/coupon", couponroutes);
+
 mongoose
-  .connect("mongodb+srv://sharath7693:dASAm9lfV67DtEzQ@deadpool.oekbu.mongodb.net/c&s")
+  .connect("mongodb+srv://sharath7693:<hanekawa>@hanekawa.h6lsu.mongodb.net/hans")
   .then(() => {
     console.log("Database connected successfully");
   })
